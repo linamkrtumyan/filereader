@@ -20,7 +20,6 @@ function Document() {
   }, [docLink]);
 
   const handleOnChange = (e: any, type: string) => {
-    console.log(type, "type");
     const url = e.target.value;
     const id = url.split("/");
     if (type === "doc") setDocLink(id[5]);

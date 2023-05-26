@@ -25,22 +25,18 @@ export const fetchSheetsData = async (
   try {
     const result = await axios.get(FULL_URL);
     const json = JSON.parse(
-      // rep.substr(47).slice(0, -2)
       result.data.replace(
         /.*google.visualization.Query.setResponse\({(.*?)}\);?/s,
         "{$1}"
       )
     );
-    console.log(json, "json");
 
     let data = json.table.rows.map((item) => {
       let row = {};
       const a = item.c.map((cell, idx) => {
-        console.log(cell, "cell");
         return (row[idx] = cell?.v ?? null);
       });
 
-      console.log(a, "aaaaaaaaaaaaaaa data");
       return row;
     });
 

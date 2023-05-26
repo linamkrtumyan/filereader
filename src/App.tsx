@@ -1,5 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
-import "./App.css";
+import React from "react";
 import Document from "./components/Document/Document";
 
 function App() {
